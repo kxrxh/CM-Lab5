@@ -1,13 +1,13 @@
 /********************************************************************************
-** Form generated from reading UI file 'designerRheYmj.ui'
+** Form generated from reading UI file 'appHfypJs.ui'
 **
 ** Created by: Qt User Interface Compiler version 5.15.13
 **
 ** WARNING! All changes made in this file will be lost when recompiling UI file!
 ********************************************************************************/
 
-#ifndef DESIGNERRHEYMJ_H
-#define DESIGNERRHEYMJ_H
+#ifndef APPHFYPJS_H
+#define APPHFYPJS_H
 
 #include <QtCore/QVariant>
 #include <QtWebEngineWidgets/QWebEngineView>
@@ -46,7 +46,6 @@ public:
   QGroupBox *groupBox_2;
   QHBoxLayout *horizontalLayout_3;
   QPushButton *browse_btn;
-  QPushButton *laod_btn;
   QPushButton *calculation_file_btn;
   QTabWidget *tabWidget_xy;
   QWidget *table_tab;
@@ -65,23 +64,23 @@ public:
   QLabel *label_5;
   QFrame *frame_5;
   QHBoxLayout *horizontalLayout_5;
-  QRadioButton *radioButton_2;
+  QRadioButton *sinx_rb;
   QLabel *label_8;
   QFrame *frame_4;
   QHBoxLayout *horizontalLayout_4;
-  QRadioButton *radioButton;
+  QRadioButton *cosx_rb;
   QLabel *label_7;
   QGroupBox *groupBox_6;
   QVBoxLayout *verticalLayout_9;
   QLabel *label_9;
   QFrame *frame_7;
   QHBoxLayout *horizontalLayout_6;
-  QDoubleSpinBox *doubleSpinBox_2;
-  QDoubleSpinBox *doubleSpinBox;
+  QDoubleSpinBox *start_sb;
+  QDoubleSpinBox *end_sb;
   QGroupBox *groupBox_3;
   QVBoxLayout *verticalLayout_7;
   QLabel *label_6;
-  QSpinBox *spinBox;
+  QSpinBox *nodes_count_sb;
   QPushButton *calculate_func_btn;
   QGroupBox *groupBox_point;
   QVBoxLayout *verticalLayout_5;
@@ -161,24 +160,14 @@ public:
 
     horizontalLayout_3->addWidget(browse_btn);
 
-    laod_btn = new QPushButton(groupBox_2);
-    laod_btn->setObjectName(QString::fromUtf8("laod_btn"));
-    laod_btn->setFont(font2);
-    laod_btn->setCheckable(false);
-    laod_btn->setChecked(false);
-    laod_btn->setAutoDefault(false);
-    laod_btn->setFlat(false);
-
-    horizontalLayout_3->addWidget(laod_btn);
-
-    verticalLayout_2->addWidget(groupBox_2);
-
-    calculation_file_btn = new QPushButton(groupBox_input_file);
+    calculation_file_btn = new QPushButton(groupBox_2);
     calculation_file_btn->setObjectName(
         QString::fromUtf8("calculation_file_btn"));
     calculation_file_btn->setFont(font2);
 
-    verticalLayout_2->addWidget(calculation_file_btn);
+    horizontalLayout_3->addWidget(calculation_file_btn);
+
+    verticalLayout_2->addWidget(groupBox_2);
 
     verticalLayout->addWidget(groupBox_input_file);
 
@@ -199,8 +188,21 @@ public:
     verticalLayout_4->addWidget(label_2);
 
     tableWidget = new QTableWidget(table_tab);
+    if (tableWidget->columnCount() < 2)
+      tableWidget->setColumnCount(2);
+    QTableWidgetItem *__qtablewidgetitem = new QTableWidgetItem();
+    tableWidget->setHorizontalHeaderItem(0, __qtablewidgetitem);
+    QTableWidgetItem *__qtablewidgetitem1 = new QTableWidgetItem();
+    tableWidget->setHorizontalHeaderItem(1, __qtablewidgetitem1);
     tableWidget->setObjectName(QString::fromUtf8("tableWidget"));
     tableWidget->setMinimumSize(QSize(0, 250));
+    tableWidget->setShowGrid(true);
+    tableWidget->setWordWrap(true);
+    tableWidget->setCornerButtonEnabled(true);
+    tableWidget->horizontalHeader()->setVisible(true);
+    tableWidget->horizontalHeader()->setDefaultSectionSize(228);
+    tableWidget->horizontalHeader()->setHighlightSections(true);
+    tableWidget->verticalHeader()->setVisible(false);
 
     verticalLayout_4->addWidget(tableWidget);
 
@@ -257,17 +259,19 @@ public:
     frame_5->setFrameShadow(QFrame::Raised);
     horizontalLayout_5 = new QHBoxLayout(frame_5);
     horizontalLayout_5->setObjectName(QString::fromUtf8("horizontalLayout_5"));
-    radioButton_2 = new QRadioButton(frame_5);
-    radioButton_2->setObjectName(QString::fromUtf8("radioButton_2"));
-    radioButton_2->setMaximumSize(QSize(20, 16777215));
-    radioButton_2->setChecked(true);
+    sinx_rb = new QRadioButton(frame_5);
+    sinx_rb->setObjectName(QString::fromUtf8("sinx_rb"));
+    sinx_rb->setMaximumSize(QSize(20, 16777215));
+    sinx_rb->setChecked(true);
 
-    horizontalLayout_5->addWidget(radioButton_2);
+    horizontalLayout_5->addWidget(sinx_rb);
 
     label_8 = new QLabel(frame_5);
     label_8->setObjectName(QString::fromUtf8("label_8"));
     QFont font4;
-    font4.setPointSize(12);
+    font4.setPointSize(16);
+    font4.setBold(true);
+    font4.setWeight(75);
     label_8->setFont(font4);
 
     horizontalLayout_5->addWidget(label_8);
@@ -280,11 +284,11 @@ public:
     frame_4->setFrameShadow(QFrame::Raised);
     horizontalLayout_4 = new QHBoxLayout(frame_4);
     horizontalLayout_4->setObjectName(QString::fromUtf8("horizontalLayout_4"));
-    radioButton = new QRadioButton(frame_4);
-    radioButton->setObjectName(QString::fromUtf8("radioButton"));
-    radioButton->setMaximumSize(QSize(20, 16777215));
+    cosx_rb = new QRadioButton(frame_4);
+    cosx_rb->setObjectName(QString::fromUtf8("cosx_rb"));
+    cosx_rb->setMaximumSize(QSize(20, 16777215));
 
-    horizontalLayout_4->addWidget(radioButton);
+    horizontalLayout_4->addWidget(cosx_rb);
 
     label_7 = new QLabel(frame_4);
     label_7->setObjectName(QString::fromUtf8("label_7"));
@@ -313,19 +317,19 @@ public:
     frame_7->setFrameShadow(QFrame::Raised);
     horizontalLayout_6 = new QHBoxLayout(frame_7);
     horizontalLayout_6->setObjectName(QString::fromUtf8("horizontalLayout_6"));
-    doubleSpinBox_2 = new QDoubleSpinBox(frame_7);
-    doubleSpinBox_2->setObjectName(QString::fromUtf8("doubleSpinBox_2"));
-    doubleSpinBox_2->setMinimum(-1000.000000000000000);
-    doubleSpinBox_2->setMaximum(1000.000000000000000);
+    start_sb = new QDoubleSpinBox(frame_7);
+    start_sb->setObjectName(QString::fromUtf8("start_sb"));
+    start_sb->setMinimum(-1000.000000000000000);
+    start_sb->setMaximum(1000.000000000000000);
 
-    horizontalLayout_6->addWidget(doubleSpinBox_2);
+    horizontalLayout_6->addWidget(start_sb);
 
-    doubleSpinBox = new QDoubleSpinBox(frame_7);
-    doubleSpinBox->setObjectName(QString::fromUtf8("doubleSpinBox"));
-    doubleSpinBox->setMinimum(-1000.000000000000000);
-    doubleSpinBox->setMaximum(1000.000000000000000);
+    end_sb = new QDoubleSpinBox(frame_7);
+    end_sb->setObjectName(QString::fromUtf8("end_sb"));
+    end_sb->setMinimum(-1000.000000000000000);
+    end_sb->setMaximum(1000.000000000000000);
 
-    horizontalLayout_6->addWidget(doubleSpinBox);
+    horizontalLayout_6->addWidget(end_sb);
 
     verticalLayout_9->addWidget(frame_7);
 
@@ -338,29 +342,25 @@ public:
     label_6 = new QLabel(groupBox_3);
     label_6->setObjectName(QString::fromUtf8("label_6"));
     label_6->setMaximumSize(QSize(16777215, 25));
-    QFont font5;
-    font5.setPointSize(16);
-    font5.setBold(true);
-    font5.setWeight(75);
-    label_6->setFont(font5);
+    label_6->setFont(font4);
 
     verticalLayout_7->addWidget(label_6);
 
-    spinBox = new QSpinBox(groupBox_3);
-    spinBox->setObjectName(QString::fromUtf8("spinBox"));
-    spinBox->setMinimum(2);
+    nodes_count_sb = new QSpinBox(groupBox_3);
+    nodes_count_sb->setObjectName(QString::fromUtf8("nodes_count_sb"));
+    nodes_count_sb->setMinimum(3);
 
-    verticalLayout_7->addWidget(spinBox);
+    verticalLayout_7->addWidget(nodes_count_sb);
 
     verticalLayout_10->addWidget(groupBox_3);
 
     calculate_func_btn = new QPushButton(func_tab);
     calculate_func_btn->setObjectName(QString::fromUtf8("calculate_func_btn"));
     calculate_func_btn->setMinimumSize(QSize(0, 0));
-    QFont font6;
-    font6.setBold(true);
-    font6.setWeight(75);
-    calculate_func_btn->setFont(font6);
+    QFont font5;
+    font5.setBold(true);
+    font5.setWeight(75);
+    calculate_func_btn->setFont(font5);
 
     verticalLayout_10->addWidget(calculate_func_btn);
 
@@ -383,12 +383,12 @@ public:
 
     point_y_value_box = new QDoubleSpinBox(groupBox_point);
     point_y_value_box->setObjectName(QString::fromUtf8("point_y_value_box"));
-    QFont font7;
-    font7.setPointSize(12);
-    font7.setBold(false);
-    font7.setWeight(50);
-    font7.setStrikeOut(false);
-    point_y_value_box->setFont(font7);
+    QFont font6;
+    font6.setPointSize(12);
+    font6.setBold(false);
+    font6.setWeight(50);
+    font6.setStrikeOut(false);
+    point_y_value_box->setFont(font6);
     point_y_value_box->setMinimum(-10000000.000000000000000);
     point_y_value_box->setMaximum(100000000.000000000000000);
 
@@ -432,6 +432,7 @@ public:
     sizePolicy.setVerticalStretch(0);
     sizePolicy.setHeightForWidth(webview->sizePolicy().hasHeightForWidth());
     webview->setSizePolicy(sizePolicy);
+    webview->setMinimumSize(QSize(774, 958));
     webview->setUrl(QUrl(QString::fromUtf8("about:blank")));
 
     verticalLayout_6->addWidget(webview);
@@ -449,7 +450,6 @@ public:
 
     retranslateUi(MainWindow);
 
-    laod_btn->setDefault(false);
     tabWidget_xy->setCurrentIndex(1);
 
     QMetaObject::connectSlotsByName(MainWindow);
@@ -462,8 +462,6 @@ public:
         "MainWindow", "Load points from file:", nullptr));
     browse_btn->setText(
         QCoreApplication::translate("MainWindow", "Browse", nullptr));
-    laod_btn->setText(
-        QCoreApplication::translate("MainWindow", "Load", nullptr));
     calculation_file_btn->setText(
         QCoreApplication::translate("MainWindow", "Calculate", nullptr));
 #if QT_CONFIG(accessibility)
@@ -471,6 +469,14 @@ public:
 #endif // QT_CONFIG(accessibility)
     label_2->setText(
         QCoreApplication::translate("MainWindow", "Input X Y:", nullptr));
+    QTableWidgetItem *___qtablewidgetitem =
+        tableWidget->horizontalHeaderItem(0);
+    ___qtablewidgetitem->setText(
+        QCoreApplication::translate("MainWindow", "X", nullptr));
+    QTableWidgetItem *___qtablewidgetitem1 =
+        tableWidget->horizontalHeaderItem(1);
+    ___qtablewidgetitem1->setText(
+        QCoreApplication::translate("MainWindow", "Y", nullptr));
     add_point_btn->setText(
         QCoreApplication::translate("MainWindow", "Add", nullptr));
     remove_point_btn->setText(
@@ -482,23 +488,23 @@ public:
         QCoreApplication::translate("MainWindow", "(X, Y) Input", nullptr));
     label_5->setText(QCoreApplication::translate(
         "MainWindow", "Select the function", nullptr));
-    radioButton_2->setText(QString());
+    sinx_rb->setText(QString());
     label_8->setText(
-        QCoreApplication::translate("MainWindow", "TextLabel", nullptr));
-    radioButton->setText(QString());
+        QCoreApplication::translate("MainWindow", "sin(x)", nullptr));
+    cosx_rb->setText(QString());
     label_7->setText(
-        QCoreApplication::translate("MainWindow", "TextLabel", nullptr));
+        QCoreApplication::translate("MainWindow", "cos(x)", nullptr));
     label_9->setText(
         QCoreApplication::translate("MainWindow", "Interval", nullptr));
     label_6->setText(
-        QCoreApplication::translate("MainWindow", "Points count", nullptr));
+        QCoreApplication::translate("MainWindow", "Nodes count", nullptr));
     calculate_func_btn->setText(
         QCoreApplication::translate("MainWindow", "Calculate", nullptr));
     tabWidget_xy->setTabText(
         tabWidget_xy->indexOf(func_tab),
         QCoreApplication::translate("MainWindow", "Function", nullptr));
     label_4->setText(QCoreApplication::translate(
-        "MainWindow", "Calculate F(Y) in point with Y:", nullptr));
+        "MainWindow", "Calculate F(X) in point with X:", nullptr));
     label_3->setText(QCoreApplication::translate(
         "MainWindow", "Calculation result", nullptr));
   } // retranslateUi
@@ -510,4 +516,4 @@ class MainWindow : public Ui_MainWindow {};
 
 QT_END_NAMESPACE
 
-#endif // DESIGNERRHEYMJ_H
+#endif // APPHFYPJS_H

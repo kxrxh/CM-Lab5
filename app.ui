@@ -125,7 +125,7 @@
               </widget>
              </item>
              <item>
-              <widget class="QPushButton" name="laod_btn">
+              <widget class="QPushButton" name="calculation_file_btn">
                <property name="font">
                 <font>
                  <weight>75</weight>
@@ -134,40 +134,11 @@
                 </font>
                </property>
                <property name="text">
-                <string>Load</string>
-               </property>
-               <property name="checkable">
-                <bool>false</bool>
-               </property>
-               <property name="checked">
-                <bool>false</bool>
-               </property>
-               <property name="autoDefault">
-                <bool>false</bool>
-               </property>
-               <property name="default">
-                <bool>false</bool>
-               </property>
-               <property name="flat">
-                <bool>false</bool>
+                <string>Calculate</string>
                </property>
               </widget>
              </item>
             </layout>
-           </widget>
-          </item>
-          <item>
-           <widget class="QPushButton" name="calculation_file_btn">
-            <property name="font">
-             <font>
-              <weight>75</weight>
-              <bold>true</bold>
-              <strikeout>false</strikeout>
-             </font>
-            </property>
-            <property name="text">
-             <string>Calculate</string>
-            </property>
            </widget>
           </item>
          </layout>
@@ -230,6 +201,37 @@
                <height>250</height>
               </size>
              </property>
+             <property name="showGrid">
+              <bool>true</bool>
+             </property>
+             <property name="wordWrap">
+              <bool>true</bool>
+             </property>
+             <property name="cornerButtonEnabled">
+              <bool>true</bool>
+             </property>
+             <attribute name="horizontalHeaderVisible">
+              <bool>true</bool>
+             </attribute>
+             <attribute name="horizontalHeaderDefaultSectionSize">
+              <number>228</number>
+             </attribute>
+             <attribute name="horizontalHeaderHighlightSections">
+              <bool>true</bool>
+             </attribute>
+             <attribute name="verticalHeaderVisible">
+              <bool>false</bool>
+             </attribute>
+             <column>
+              <property name="text">
+               <string>X</string>
+              </property>
+             </column>
+             <column>
+              <property name="text">
+               <string>Y</string>
+              </property>
+             </column>
             </widget>
            </item>
            <item>
@@ -332,7 +334,7 @@
                 </property>
                 <layout class="QHBoxLayout" name="horizontalLayout_5">
                  <item>
-                  <widget class="QRadioButton" name="radioButton_2">
+                  <widget class="QRadioButton" name="sinx_rb">
                    <property name="maximumSize">
                     <size>
                      <width>20</width>
@@ -351,11 +353,13 @@
                   <widget class="QLabel" name="label_8">
                    <property name="font">
                     <font>
-                     <pointsize>12</pointsize>
+                     <pointsize>16</pointsize>
+                     <weight>75</weight>
+                     <bold>true</bold>
                     </font>
                    </property>
                    <property name="text">
-                    <string>TextLabel</string>
+                    <string>sin(x)</string>
                    </property>
                   </widget>
                  </item>
@@ -372,7 +376,7 @@
                 </property>
                 <layout class="QHBoxLayout" name="horizontalLayout_4">
                  <item>
-                  <widget class="QRadioButton" name="radioButton">
+                  <widget class="QRadioButton" name="cosx_rb">
                    <property name="maximumSize">
                     <size>
                      <width>20</width>
@@ -388,11 +392,13 @@
                   <widget class="QLabel" name="label_7">
                    <property name="font">
                     <font>
-                     <pointsize>12</pointsize>
+                     <pointsize>16</pointsize>
+                     <weight>75</weight>
+                     <bold>true</bold>
                     </font>
                    </property>
                    <property name="text">
-                    <string>TextLabel</string>
+                    <string>cos(x)</string>
                    </property>
                   </widget>
                  </item>
@@ -435,7 +441,7 @@
                 </property>
                 <layout class="QHBoxLayout" name="horizontalLayout_6">
                  <item>
-                  <widget class="QDoubleSpinBox" name="doubleSpinBox_2">
+                  <widget class="QDoubleSpinBox" name="start_sb">
                    <property name="minimum">
                     <double>-1000.000000000000000</double>
                    </property>
@@ -445,7 +451,7 @@
                   </widget>
                  </item>
                  <item>
-                  <widget class="QDoubleSpinBox" name="doubleSpinBox">
+                  <widget class="QDoubleSpinBox" name="end_sb">
                    <property name="minimum">
                     <double>-1000.000000000000000</double>
                    </property>
@@ -479,14 +485,14 @@
                  </font>
                 </property>
                 <property name="text">
-                 <string>Points count</string>
+                 <string>Nodes count</string>
                 </property>
                </widget>
               </item>
               <item>
-               <widget class="QSpinBox" name="spinBox">
+               <widget class="QSpinBox" name="nodes_count_sb">
                 <property name="minimum">
-                 <number>2</number>
+                 <number>3</number>
                 </property>
                </widget>
               </item>
@@ -548,7 +554,7 @@
              </font>
             </property>
             <property name="text">
-             <string>Calculate F(Y) in point with Y:</string>
+             <string>Calculate F(X) in point with X:</string>
             </property>
            </widget>
           </item>
@@ -640,6 +646,12 @@
            <horstretch>0</horstretch>
            <verstretch>0</verstretch>
           </sizepolicy>
+         </property>
+         <property name="minimumSize">
+          <size>
+           <width>774</width>
+           <height>958</height>
+          </size>
          </property>
          <property name="url">
           <url>
